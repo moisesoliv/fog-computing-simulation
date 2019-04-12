@@ -1,0 +1,6 @@
+Flask
+requests
+iperf3
+paho-mqtt
+hbmqtt
+psutil

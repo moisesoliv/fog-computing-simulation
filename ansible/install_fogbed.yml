@@ -1,0 +1,24 @@
+- hosts: localhost
+  tasks:
+   - name: updates apt
+     shell: apt-get -qq update
+
+   - name: build and install Containernet (using Mininet installer)
+     shell: fogbed/util/install.sh
+     args:
+       chdir: ../../
+
+   - name: install Fogbed Python egg etc.
+     shell: make develop
+     args:
+       chdir: ../
+
+   - name: install Maxinet
+     shell: make maxinstall
+     args:
+       chdir: ../
+
+   - name: download 'ubuntu' docker image for Fogbed example
+     shell: docker pull ubuntu:trusty
+     tags:
+        - notindocker

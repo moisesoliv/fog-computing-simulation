@@ -1,0 +1,11 @@
+version: '2'
+services:
+  fogbed:
+    image: fogbed
+    command:
+      - /bin/bash
+    tty: true
+    privileged: true
+    pid: host
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
